@@ -1,0 +1,6 @@
+import mongoose from 'mongoose';
+const expiry={type:Date,required:true,index:{expires:0}};
+export const TripRecord=mongoose.models.BharatSafeTrip||mongoose.model('BharatSafeTrip',new mongoose.Schema({token:{type:String,unique:true},journeyId:String,routeIndex:Number,time:String,position:Number,reached:Boolean,expiresAt:expiry},{timestamps:true}));
+export const BuddyRecord=mongoose.models.BharatSafeBuddy||mongoose.model('BharatSafeBuddy',new mongoose.Schema({token:{type:String,unique:true},candidate:Object,accepted:Boolean,peerAccepted:Boolean,quietStart:Number,quietEnd:Number,time:String,expiresAt:expiry},{timestamps:true}));
+export const UserRecord=mongoose.models.BharatSafeUser||mongoose.model('BharatSafeUser',new mongoose.Schema({id:{type:String,unique:true},name:String,email:{type:String,unique:true},phone:String,passwordHash:String,contacts:Array,alarmSettings:Object},{timestamps:true}));
+export const SOSRecord=mongoose.models.BharatSafeSOS||mongoose.model('BharatSafeSOS',new mongoose.Schema({token:{type:String,unique:true},userId:String,name:String,journeyId:String,routeIndex:Number,time:String,status:String,createdAt:Number,activeUntil:Number,expiredAt:Number,expiresAt:expiry,positions:Array,contacts:Array,deliveries:Array,locationStatus:String,awaitingLocation:Boolean,clearedAt:Number},{timestamps:true}));

@@ -1,0 +1,20 @@
+{
+  "name": "bharatsafe-demo-client",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "test": "node --test dashboard.test.js src/*.test.js"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "leaflet": "latest",
+    "lucide-react": "latest",
+    "qrcode.react": "^4.2.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-leaflet": "latest",
+    "vite": "latest"
+  }
+}
