@@ -19,7 +19,7 @@ Bharat Safe is a women's travel-safety prototype that compares walking routes us
 
 - **Frontend:** React, Vite
 - **Backend:** Node.js, Express.js
-- **Database:** MongoDB (optional)
+- **Database:** MongoDB 
 - **Maps:** OpenStreetMap tiles
 
 The prototype uses hand-authored routes and sample business data. It does not currently use routing, geocoding, or places APIs.
