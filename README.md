@@ -1,101 +1,72 @@
-# 🇮🇳 Bharat Safe
+# Bharat Safe
 
-### Smarter routes. More confident journeys.
+**The way home that stays alive after dark.**
 
-Bharat Safe is a women's travel-safety prototype that compares walking routes using estimated nighttime activity. It also demonstrates walking-buddy matching, trip check-ins, and SOS alerts.
+Bharat Safe helps people choose a walking route that is still active at night, and gives them
+an SOS safety net that works even when they cannot reach their phone.
 
-> ⚠️ **Note:** This is a prototype. Route scores are demo activity estimates, not safety ratings. In an emergency in India, call **112**.
+> Prototype. Route scores are activity estimates, not safety ratings.
+> In an emergency in India, call **112**.
 
-## ✨ Features
 
-- 🗺️ **Route Comparison:** Compare two walking routes using estimated nighttime activity and sample business opening hours.
-- 🤝 **Walking Buddy:** Request a travel companion and view overlapping route segments.
-- 🆘 **SOS Alerts:** Trigger alerts when a trip check-in is missed.
-- 📍 **Location Sharing:** Share available device location details during an SOS.
-- 📩 **Notifications:** Optional Telegram and email alerts.
-- 👤 **User Profile:** Manage emergency contacts and check-in settings.
+## The problem
+The fastest route home is often the emptiest one: shuttered shops, long dark stretches, no one
+around. Navigation apps optimise for speed, and most safety apps only react after something
+has gone wrong.
 
-## 🛠️ Tech Stack
+## What it does
+- **Night Activity Score:** compares routes by how many places will be open when you walk past
+  them, using opening hours at your arrival time, and shows where the quiet stretches are.
+- **Time slider:** drag the departure time and watch shops close and the route dim.
+- **Check-in alarm with voice:** speaks in a natural English or Hindi voice (ElevenLabs).
+  Ignore it and an SOS is triggered.
+- **SOS to emergency contacts:** a Telegram message, a live location pin that follows the
+  device, and a recorded voice message, then an all-clear when you are safe.
+- **Optional walking buddy:** match with someone on the same quiet stretch. The route never
+  depends on it.
+- **Profile:** emergency contacts, voice language and check-in settings.
 
-- **Frontend:** React, Vite
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB 
-- **Maps:** OpenStreetMap tiles
+## What is real and what is simulated
+| Real | Simulated for the demo |
+|---|---|
+| Scoring engine and opening-hours logic | Routes and places (hand-authored sample data) |
+| SOS alarm, Telegram alerts and live location | The walker's movement along the route |
+| ElevenLabs voice lines (pre-generated audio) | Buddy profiles |
 
-The prototype uses hand-authored routes and sample business data. It does not currently use routing, geocoding, or places APIs.
+## Tech stack
+- **Frontend:** React, Vite, Leaflet
+- **Backend:** Node.js, Express, JWT auth, Telegram Bot API
+- **AI / voice:** ElevenLabs (English and Hindi voice alerts)
+- **Database:** MongoDB (in-memory fallback)
+- **GIS and data:** OpenStreetMap, Turf.js, `opening_hours`
 
-## 🚀 Getting Started
+## Getting started
+Prerequisites: Node.js and npm.
 
-**Prerequisites:** Node.js and npm.
+    # terminal 1
+    cd server && cp .env.example .env && npm install && npm run dev
 
-### 1. Clone the repository
+    # terminal 2
+    cd client && npm install && npm run dev
 
-```bash
-git clone <YOUR_REPOSITORY_URL>
-cd <YOUR_PROJECT_FOLDER>
-```
+Open http://localhost:3000 and choose **Continue with demo profile**.
+Demo login: `demo@bharatsafe.app` / `RiyaWalks@2026` (demo account only).
 
-### 2. Start the backend
+## Trying the SOS (optional)
+1. Create a bot with @BotFather and add `TELEGRAM_BOT_TOKEN` and `TELEGRAM_BOT_USERNAME` to
+   `server/.env`.
+2. In **Profile**, tap **Link Telegram** on a contact and press Start in the bot.
+3. Start a walk and let the alarm run out. Allow location when asked.
 
-```bash
-cd server
-cp .env.example .env
-npm install
-npm run dev
-```
+## Limitations
+- Routes and places are sample data. Scores are estimates, not safety measurements.
+- A web page cannot guarantee alerts or location when the phone is locked or the tab is in
+  the background. A native app is the next step.
+- Bharat Safe does not contact emergency services automatically.
 
-### 3. Start the frontend
+## Future scope
+Real pedestrian routing, live place and opening-hours data, native app with background
+location, SMS delivery, stronger privacy controls.
 
-Open a second terminal:
-
-```bash
-cd client
-npm install
-npm run dev
-```
-
-Open **http://localhost:3000** in your browser.
-
-## 🔑 Demo Login
-
-- **Email:** `demo@bharatsafe.app`
-- **Password:** `RiyaWalks@2026`
-
-You can also select **Continue with demo profile**.
-
-## 🧪 Testing
-
-**Backend:**
-
-```bash
-cd server
-npm test
-```
-
-**Frontend:**
-
-```bash
-cd client
-npm test
-npm run build
-```
-
-## ⚠️ Limitations
-
-- Routes and business data are simulated.
-- Activity scores are estimates, not verified safety measurements.
-- Buddy matching and some account features use demo data.
-- Real Telegram and email alerts require configuration.
-- Location tracking depends on browser permissions, connectivity, and device behaviour.
-- Bharat Safe does not automatically contact emergency services.
-
-## 🔮 Future Scope
-
-- Integrate real pedestrian routing.
-- Use up-to-date place and opening-hours data.
-- Improve route scoring and buddy matching.
-- Strengthen privacy and emergency notification reliability.
-
----
-
-**Bharat Safe — Helping people make more informed travel decisions.**
+## Credits
+Map data © OpenStreetMap contributors · Tiles © CARTO · Voice by ElevenLabs
