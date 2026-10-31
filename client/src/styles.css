@@ -10,3 +10,5 @@
 .telegram-contact{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}.telegram-state{display:block;color:var(--muted);font-size:11px;margin-bottom:8px}.telegram-contact .contact-actions{flex-wrap:wrap}.telegram-link-card{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}.telegram-link-card p,.telegram-link-card>a,.delivery-result{font-size:11px;color:var(--muted);overflow-wrap:anywhere}.telegram-link-tools{display:flex;align-items:center;gap:14px;margin-top:10px}.telegram-link-tools svg{border:1px solid var(--line);padding:5px}.delivery-list{border-top:1px solid var(--line);margin-top:10px;padding-top:6px}.delivery-result{margin:5px 0}
 
 .location-disclosure,.location-status{color:#9a978f;font-size:.78rem;line-height:1.5;margin:.55rem 0}.location-status{color:#d4c9b8}.location-disclosure{max-width:28rem}
+
+.voice-settings{align-items:end}.voice-toggle{margin:0}.voice-credit{color:var(--muted,#9a978f);font-size:.75rem}
